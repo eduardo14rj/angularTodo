@@ -37,4 +37,10 @@
 
 .card-inputname {
     width: 100%;
+    @apply border-1 rounded-md mb-3 p-2 ;
+}
+
+
+.button-sm{
+    @apply bg-blue-950 py-1 px-2 rounded-md text-white;
 }
