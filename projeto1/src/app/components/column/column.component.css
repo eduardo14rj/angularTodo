@@ -1,0 +1,30 @@
+.column {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: calc(100vw / 4);
+    margin: 10px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-add {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    display: block;
+}
+
+.card-inputname {
+    width: 100%;
+    
+}

@@ -1,0 +1,14 @@
+.column-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.column-add {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: calc(100vw / 4);
+    margin: 10px;
+}
+

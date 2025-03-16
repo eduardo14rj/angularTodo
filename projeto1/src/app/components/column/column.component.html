@@ -1,0 +1,25 @@
+<div class="column">
+    <div class="column-header">
+        <h2 [contentEditable]="true" (input)="updateColumnTitle(column.id, $event)">{{column.title}}</h2>
+        <div>
+            <button (click)="handleDeleteColumn(column.id)">-</button>
+        </div>
+    </div>
+    <div class="column-content">
+        <div *ngFor="let card of getCardsForColumn()">
+            <div class="card">
+                <p>{{ card.title }}</p>
+            </div>
+        </div>
+        <div *ngIf="!isOpencreateCard">
+            <button class="card-add" (click)="openCardName()">Adicionar novo card</button>
+        </div>
+        <div *ngIf="isOpencreateCard" style="padding: 10px;">
+            <input class="card-inputname" placeholder="Digite no nome do card" [(ngModel)]="createCardTitle">
+            <div>
+                <button (click)="createCard(column.id, createCardTitle)">Salvar</button>
+                <button (click)="closeCardName()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
