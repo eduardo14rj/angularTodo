@@ -1,14 +1,15 @@
 <div class="column">
-    <div class="column-header">
-        <h2 [contentEditable]="true" (input)="updateColumnTitle(column.id, $event)">{{column.title}}</h2>
+    <div class="column-headertext-1xl font-bold flex justify-between pb-4">
+        <h2 [contentEditable]="true" (input)="updateColumnTitle(column.id, $event)">
+            {{column.title}}</h2>
         <div>
-            <button (click)="handleDeleteColumn(column.id)">-</button>
+            <button (click)="handleDeleteColumn(column.id)" class="p-3 bg-amber-300">-</button>
         </div>
     </div>
     <div class="column-content">
         <div *ngFor="let card of getCardsForColumn()">
             <div class="card">
-                <p>{{ card.title }}</p>
+                <h4>{{ card.title }}</h4>
             </div>
         </div>
         <div *ngIf="!isOpencreateCard">

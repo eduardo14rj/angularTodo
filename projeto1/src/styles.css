@@ -1,5 +1,17 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss";
+@tailwind utilities;
+
 * {
     box-sizing: border-box;
     width: auto;
     height: auto;
 }/* You can add global styles to this file, and also import other style files */
+
+body {
+    @apply bg-sky-200;
+}
+
+button {
+    @apply cursor-pointer;
+}

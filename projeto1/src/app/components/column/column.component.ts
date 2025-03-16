@@ -62,6 +62,11 @@ export class ColumnComponent {
   }
 
   public createCard(columnId: number, title: string) {
+    if (title === '') {
+      alert("O nome do card não pode ser vazio");
+      return;
+    }
+    
     this.trelloService.createCard(columnId, title);
     this.updateColumnList();
   }

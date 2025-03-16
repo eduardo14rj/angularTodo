@@ -1,6 +1,7 @@
 <div class="column-container">
     <div *ngFor="let column of columnList">
-        <app-column [deletedoColumn]="deleteColumn.bind(this)" [column]="column" [updateColumnList]="updateColumnList.bind(this)">
+        <app-column [deletedoColumn]="deleteColumn.bind(this)" [column]="column"
+            [updateColumnList]="updateColumnList.bind(this)">
         </app-column>
     </div>
     <div>
@@ -8,4 +9,4 @@
             +
         </button>
     </div>
-</div>kw
+</div>
