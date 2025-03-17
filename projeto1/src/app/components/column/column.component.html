@@ -2,7 +2,7 @@
     <div class="column-headertext-1xl font-bold flex justify-between pb-4">
         <h2 [contentEditable]="true" (input)="updateColumnTitle(column.id, $event)">
             {{column.title}}</h2>
-        <button (click)="handleDeleteColumn(column.id)" class="bg-red-500! h-[20px]! w-[20px]! rounded-md! text-white!">-</button>
+        <button (click)="onDeleteColumn()" class="bg-red-500! h-[20px]! w-[20px]! rounded-md! text-white!">-</button>
     </div>
     <div class="column-content">
         <div *ngFor="let card of getCardsForColumn()">

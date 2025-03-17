@@ -1,12 +1,11 @@
 <div class="column-container">
     <div *ngFor="let column of columnList">
-        <app-column [deletedoColumn]="deleteColumn.bind(this)" [column]="column"
-            [updateColumnList]="updateColumnList.bind(this)">
+        <app-column (deleteColumn)="updateList()" [column]="column" (updateColumnList)="updateColumnList.bind(this)">
         </app-column>
     </div>
     <div>
         <button (click)="createColumn()" class="column-add">
-            +
+            adicionar nova coluna +
         </button>
     </div>
 </div>

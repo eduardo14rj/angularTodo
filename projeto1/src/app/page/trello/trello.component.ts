@@ -6,7 +6,6 @@ import { Card } from '../../interfaces/card';
 @Component({
   selector: 'app-trello',
   standalone: false,
-  providers: [TrelloService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './trello.component.html',
   styleUrls: ['./trello.component.css']
@@ -17,9 +16,8 @@ export class TrelloComponent {
 
   constructor(public trelloService: TrelloService, private cdr: ChangeDetectorRef) { }
 
-
   ngOnInit() {
-    this.columnList = this.trelloService.columnList();
+    this.updateList();
   }
 
   public createColumn() {
@@ -35,6 +33,11 @@ export class TrelloComponent {
   }
 
   public updateColumnList() {
+    this.columnList = [...this.trelloService.columnList()];
+    this.cdr.markForCheck();
+  }
+
+  public updateList() {
     this.columnList = [...this.trelloService.columnList()];
     this.cdr.markForCheck();
   }

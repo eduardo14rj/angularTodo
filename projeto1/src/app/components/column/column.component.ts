@@ -11,8 +11,8 @@ import { Card } from '../../interfaces/card';
 })
 export class ColumnComponent {
   @Input() column!: Column;
-  @Input() deletedoColumn!: (columnId: number) => void
-  @Input() updateColumnList!: () => void;
+  @Output() deleteColumn: EventEmitter<number> = new EventEmitter<number>();
+  @Output() updateColumnList: EventEmitter<void> = new EventEmitter<void>();
 
   public createCardTitle: string = '';
   public isOpencreateCard: boolean = false;
@@ -56,23 +56,25 @@ export class ColumnComponent {
   }
 
 
-  public deleteColumn(columnId: number) {
-    this.trelloService.deleteColumn(columnId);
-    this.updateColumnList();
+  // Método para deletar a coluna
+  public onDeleteColumn() {
+    this.trelloService.deleteColumn(this.column.id);
+    this.deleteColumn.emit(this.column.id);
+    this.updateColumnList.emit();
   }
+
 
   public createCard(columnId: number, title: string) {
     if (title === '') {
       alert("O nome do card não pode ser vazio");
       return;
     }
-    
+
     this.trelloService.createCard(columnId, title);
-    this.updateColumnList();
   }
 
   public handleDeleteColumn(columnId: number) {
-    this.deletedoColumn(columnId);
+    this.onDeleteColumn();
   }
 
   public getCardsForColumn(): Card[] {
