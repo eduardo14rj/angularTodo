@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Column } from '../../interfaces/column';
 import { TrelloService } from '../../services/trello.service';
 import { Card } from '../../interfaces/card';
@@ -9,7 +9,7 @@ import { Card } from '../../interfaces/card';
   templateUrl: './column.component.html',
   styleUrl: './column.component.css'
 })
-export class ColumnComponent {
+export class ColumnComponent implements OnInit {
   @Input() column!: Column;
   @Output() deleteColumn: EventEmitter<number> = new EventEmitter<number>();
   @Output() updateColumnList: EventEmitter<void> = new EventEmitter<void>();
@@ -17,12 +17,7 @@ export class ColumnComponent {
   public createCardTitle: string = '';
   public isOpencreateCard: boolean = false;
   constructor(private trelloService: TrelloService) {
-
   }
-
-  ngOnInit() {
-  }
-
 
   public updateColumnTitle(columnId: number, headingElement: Event) {
     const heading = headingElement.target as HTMLHeadingElement;
@@ -38,8 +33,10 @@ export class ColumnComponent {
 
     columnItem.title = newTitle;
     this.trelloService.updateColumnTitle(columnId, newTitle);
-
     heading.focus();
+  }
+
+  ngOnInit() {
   }
 
   public columnList() {
@@ -69,7 +66,8 @@ export class ColumnComponent {
       alert("O nome do card não pode ser vazio");
       return;
     }
-
+    this.closeCardName();
+    this.createCardTitle = '';
     this.trelloService.createCard(columnId, title);
   }
 

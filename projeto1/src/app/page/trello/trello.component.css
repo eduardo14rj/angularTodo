@@ -9,9 +9,9 @@
 
 
 .column-add {
-    border: 1px solid #ccc;
     padding: 10px;
     width: calc(100vw / 4);
     margin: 10px;
-    @apply bg-slate-100;
+    @apply bg-sky-950 rounded-md text-white;
+    @apply hover:bg-sky-900;
 }
