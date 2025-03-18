@@ -6,7 +6,7 @@
     padding: 10px;
     width: calc(100vw / 4);
     margin: 10px;
-    @apply h-[calc(100vh_-_20px)] bg-sky-950 rounded-md;
+    @apply h-[calc(100vh_-_20px)] bg-stone-100 rounded-md;
 }
 
 .column-header {
@@ -16,24 +16,21 @@
 }
 
 .card-add {
-    @apply p-2 w-full border-1 mt-2 rounded-md border-blue-200 text-blue-200;
+    @apply p-2 w-full border-1 mt-2 rounded-md border-cyan-700 text-cyan-700;
     @apply hover:bg-blue-200/10
 }
 
 .card {
-    padding: 10px;
+    padding: 16px;
     width: 100%;
     display: block;
-    @apply bg-blue-600 rounded-md mt-3;
+    @apply bg-white rounded-md mt-3 shadow;
 }
 
-.card h4 {
-    @apply text-white;
-}
 
 .card-inputname {
     width: 100%;
-    @apply border-1 rounded-md mb-3 p-2 border-blue-200 text-white placeholder:text-blue-200/30;
+    @apply border-1 rounded-md mb-3 p-2 border-cyan-700/80 text-cyan-700 placeholder:text-cyan-700/50;
 }
 
 
